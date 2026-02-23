@@ -71,6 +71,22 @@
         </div>
     </section>
 
+    <!-- Daily Eco-Tip Section (Fixed Integration) -->
+    <section class="max-w-4xl mx-auto mt-10 px-6">
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg shadow-sm relative overflow-hidden">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <span class="text-3xl">💡</span>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-lg font-bold text-yellow-800 uppercase tracking-wider">Eco-Tip of the Day</h3>
+                    <p id="ecoTip" class="text-gray-700 italic text-lg mt-1 leading-relaxed">Loading your daily tip...</p>
+                    <button onclick="showNewTip()" class="mt-3 text-sm font-semibold text-yellow-600 hover:text-yellow-800 underline">Next Tip →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Scientific Discovery & Observation -->
     <section id="discovery" class="py-20 container mx-auto px-6">
         <div class="bg-white rounded-[3rem] shadow-xl border border-slate-100 overflow-hidden">
@@ -137,28 +153,22 @@
             </div>
 
             <div class="max-w-4xl mx-auto relative bg-slate-800 rounded-3xl p-4 border-4 border-slate-700 shadow-2xl">
-                <!-- House Image Representation -->
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200');">
-                    <!-- Overlay for darker look -->
                     <div class="absolute inset-0 bg-black/40"></div>
                     
-                    <!-- Waste Point 1: Empty Room Light -->
                     <button onclick="showFact('light')" class="waste-point absolute top-1/4 right-1/4 w-12 h-12 bg-red-500/80 rounded-full flex items-center justify-center border-4 border-white text-white z-20">
                         <span class="text-xl">💡</span>
                     </button>
 
-                    <!-- Waste Point 2: Running Tap -->
                     <button onclick="showFact('water')" class="waste-point absolute bottom-1/3 left-1/3 w-12 h-12 bg-blue-500/80 rounded-full flex items-center justify-center border-4 border-white text-white z-20">
                         <span class="text-xl">💧</span>
                     </button>
 
-                    <!-- Waste Point 3: Plugged Charger -->
                     <button onclick="showFact('plug')" class="waste-point absolute bottom-1/4 right-1/3 w-12 h-12 bg-yellow-500/80 rounded-full flex items-center justify-center border-4 border-white text-white z-20">
                         <span class="text-xl">🔌</span>
                     </button>
                 </div>
 
-                <!-- Info Display Area -->
                 <div id="gameInfo" class="mt-6 bg-slate-700 p-6 rounded-2xl border border-slate-600 hidden">
                     <div class="flex items-center gap-4">
                         <div id="factIcon" class="text-4xl"></div>
@@ -202,78 +212,7 @@
             </div>
         </div>
     </section>
-    
-    <script>
-// قائمة الـ 50 نصيحة بيئية
-const tips = [
-    "Switch off the lights when leaving a room.",
-    "Use natural light during the day instead of bulbs.",
-    "Unplug chargers when they are not in use.",
-    "Take a short shower (less than 5 minutes) to save water.",
-    "Turn off the tap while brushing your teeth.",
-    "Wait for a full load before using the washing machine.",
-    "Use a clothesline to dry your clothes instead of a dryer.",
-    "Plant a tree or a small plant in your balcony.",
-    "Recycle paper, plastic, and glass properly.",
-    "Use a reusable water bottle instead of plastic ones.",
-    "Carry a cloth bag for shopping.",
-    "Don't waste food – only cook what you need.",
-    "Use LED bulbs – they save up to 80% more energy.",
-    "Set your AC to 24°C to save electricity in the summer.",
-    "Walk or bike for short trips instead of taking a car.",
-    "Use rechargeable batteries to reduce chemical waste.",
-    "Fix leaky taps immediately to save thousands of liters.",
-    "Eat more plant-based meals to reduce your carbon footprint.",
-    "Use a bowl to wash vegetables instead of running the tap.",
-    "Use the 'Eco' mode on your dishwasher or washing machine.",
-    "Avoid using single-use plastic straws and cutlery.",
-    "Reuse old glass jars for storage instead of buying new ones.",
-    "Turn off your computer or laptop at night.",
-    "Use a reusable coffee cup.",
-    "Buy local products to reduce transport pollution.",
-    "Close your curtains to keep the heat out during the day.",
-    "Use a lid on your pot while cooking to save heat.",
-    "Boil only the amount of water you need in the kettle.",
-    "Compost your fruit and vegetable scraps if possible.",
-    "Avoid buying over-packaged products.",
-    "Donate old clothes instead of throwing them away.",
-    "Use a watering can instead of a hose for your garden.",
-    "Print on both sides of the paper.",
-    "Use cold water for washing clothes whenever possible.",
-    "Tell your friends and family about saving energy!",
-    "Use solar-powered lights for your outdoor area.",
-    "Keep your fridge door closed – don't linger while looking.",
-    "Check your car’s tire pressure to save fuel.",
-    "Stop using plastic wrap; use beeswax wraps or containers.",
-    "Install a low-flow showerhead to save water.",
-    "Mend your clothes instead of buying new ones.",
-    "Avoid fast fashion – buy quality over quantity.",
-    "Use a laptop instead of a desktop to save 80% energy.",
-    "Pick up litter when you see it at the beach or park.",
-    "Turn off your car engine if you are waiting for someone.",
-    "Use matches instead of plastic lighters.",
-    "Store leftovers in glass containers.",
-    "Opt for digital receipts instead of paper ones.",
-    "Use a handheld fan instead of a small electric one.",
-    "Collect rainwater to water your indoor plants."
-];
 
-function showNewTip() {
-    // اختيار رقم عشوائي بين 0 وطول قائمة النصائح
-    const randomIndex = Math.floor(Math.random() * tips.length);
-    
-    // تحديث النص في العنصر الذي يحمل المعرف ecoTip داخل الصفحة
-    const tipElement = document.getElementById('ecoTip');
-    if (tipElement) {
-        tipElement.innerText = tips[randomIndex];
-    }
-
-
-// تشغيل الوظيفة لاختيار أول نصيحة بمجرد تحميل الصفحة بالكامل
-window.onload = function() {
-    showNewTip();
-};
-        
     <!-- Saving Calculator -->
     <section id="calculator" class="py-20 container mx-auto px-6 max-w-4xl">
         <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-100 relative overflow-hidden">
@@ -343,24 +282,86 @@ window.onload = function() {
     </footer>
 
     <script>
+        // Eco-Friendly Tips (50 Tips)
+        const tips = [
+            "Switch off the lights when leaving a room.",
+            "Use natural light during the day instead of bulbs.",
+            "Unplug chargers when they are not in use.",
+            "Take a short shower (less than 5 minutes) to save water.",
+            "Turn off the tap while brushing your teeth.",
+            "Wait for a full load before using the washing machine.",
+            "Use a clothesline to dry your clothes instead of a dryer.",
+            "Plant a tree or a small plant in your balcony.",
+            "Recycle paper, plastic, and glass properly.",
+            "Use a reusable water bottle instead of plastic ones.",
+            "Carry a cloth bag for shopping.",
+            "Don't waste food – only cook what you need.",
+            "Use LED bulbs – they save up to 80% more energy.",
+            "Set your AC to 24°C to save electricity in the summer.",
+            "Walk or bike for short trips instead of taking a car.",
+            "Use rechargeable batteries to reduce chemical waste.",
+            "Fix leaky taps immediately to save thousands of liters.",
+            "Eat more plant-based meals to reduce your carbon footprint.",
+            "Use a bowl to wash vegetables instead of running the tap.",
+            "Use the 'Eco' mode on your dishwasher or washing machine.",
+            "Avoid using single-use plastic straws and cutlery.",
+            "Reuse old glass jars for storage instead of buying new ones.",
+            "Turn off your computer or laptop at night.",
+            "Use a reusable coffee cup.",
+            "Buy local products to reduce transport pollution.",
+            "Close your curtains to keep the heat out during the day.",
+            "Use a lid on your pot while cooking to save heat.",
+            "Boil only the amount of water you need in the kettle.",
+            "Compost your fruit and vegetable scraps if possible.",
+            "Avoid buying over-packaged products.",
+            "Donate old clothes instead of throwing them away.",
+            "Use a watering can instead of a hose for your garden.",
+            "Print on both sides of the paper.",
+            "Use cold water for washing clothes whenever possible.",
+            "Tell your friends and family about saving energy!",
+            "Use solar-powered lights for your outdoor area.",
+            "Keep your fridge door closed – don't linger while looking.",
+            "Check your car’s tire pressure to save fuel.",
+            "Stop using plastic wrap; use beeswax wraps or containers.",
+            "Install a low-flow showerhead to save water.",
+            "Mend your clothes instead of buying new ones.",
+            "Avoid fast fashion – buy quality over quantity.",
+            "Use a laptop instead of a desktop to save 80% energy.",
+            "Pick up litter when you see it at the beach or park.",
+            "Turn off your car engine if you are waiting for someone.",
+            "Use matches instead of plastic lighters.",
+            "Store leftovers in glass containers.",
+            "Opt for digital receipts instead of paper ones.",
+            "Use a handheld fan instead of a small electric one.",
+            "Collect rainwater to water your indoor plants."
+        ];
+
+        function showNewTip() {
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            const tipElement = document.getElementById('ecoTip');
+            if (tipElement) {
+                tipElement.innerText = tips[randomIndex];
+            }
+        }
+
         // Game Logic
         const facts = {
             light: {
                 title: "Energy Leak Found: Empty Room Light!",
                 icon: "💡",
-                text: "Shahad observed that many rooms are left with lights on. Wadimah's research shows that lighting accounts for up to 15% of household energy use. Switch it off to save resources!",
+                text: "Shahad observed that many rooms are left with lights on. Wadimah's research shows that lighting accounts for up to 15% of household energy use.",
                 source: "Observed by Shahad | Research by Wadimah"
             },
             water: {
                 title: "Resource Leak Found: Running Tap!",
                 icon: "💧",
-                text: "Marwah's interviews showed that families save more when they realize water usage costs. A running tap while brushing wastes 15 liters of water every time!",
+                text: "Marwah's interviews showed that families save more when they realize water usage costs. A running tap while brushing wastes 15 liters!",
                 source: "Insights by Marwah | Research by Nadin"
             },
             plug: {
                 title: "Energy Leak Found: Vampire Power!",
                 icon: "🔌",
-                text: "Shikha found that electronics plugged in needlessly waste 'phantom' energy. Unplugging them helps fight climate change by reducing unnecessary CO2 emissions.",
+                text: "Shikha found that electronics plugged in needlessly waste 'phantom' energy. Unplugging them helps fight climate change.",
                 source: "Observed by Shikha | Research by Wadimah"
             }
         };
@@ -373,7 +374,6 @@ window.onload = function() {
             document.getElementById('factText').innerText = fact.text;
             document.getElementById('factSource').innerText = fact.source;
             infoBox.classList.remove('hidden');
-            infoBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function toggleMission(btn) {
@@ -386,6 +386,7 @@ window.onload = function() {
             }
         }
 
+        // Calculator Logic
         const lightsInput = document.getElementById('lights');
         const waterInput = document.getElementById('water');
         const lightsVal = document.getElementById('lightsVal');
@@ -393,21 +394,21 @@ window.onload = function() {
         const totalSavings = document.getElementById('totalSavings');
 
         function updateSavings() {
-            const lights = parseInt(lightsInput.value);
-            const water = parseInt(waterInput.value);
+            const lights = parseInt(lightsInput.value) || 0;
+            const water = parseInt(waterInput.value) || 0;
             lightsVal.innerText = lights + (lights === 1 ? " Bulb" : " Bulbs");
             waterVal.innerText = water + (water === 1 ? " Min" : " Mins");
             const result = (lights * 7) + (water * 12); 
             totalSavings.innerText = result;
         }
 
-        lightsInput.addEventListener('input', updateSavings);
-        waterInput.addEventListener('input', updateSavings);
-        updateSavings();
+        // Initialize Everything
+        window.onload = function() {
+            showNewTip();
+            updateSavings();
+            lightsInput.addEventListener('input', updateSavings);
+            waterInput.addEventListener('input', updateSavings);
+        };
     </script>
 </body>
-
 </html>
-
-
-
