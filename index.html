@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Home Heroes | Sustainability Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- تحميل مكتبة Chart.js بشكل صحيح -->
+    <!-- تحميل مكتبة Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -44,20 +44,6 @@
             padding: 40px;
             background: white;
             position: relative;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 2rem;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
         }
     </style>
 </head>
@@ -408,35 +394,39 @@
         </div>
     </section>
 
-    <!-- NEW ADDITION: Awareness Video Section -->
+    <!-- UPDATED: Resources Section (No Video Player) -->
     <section class="py-20 bg-green-900 text-white">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-black mb-6">Watch Our Mission in Action</h2>
-                    <p class="text-green-100 text-lg mb-8 leading-relaxed">
-                        Learn more about how the <strong>Green Home Heroes</strong> team at Fujairah School is making a difference. This video highlights our discovery phase and how we can all contribute to a greener UAE.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 bg-green-800/50 p-4 rounded-2xl border border-green-700">
-                            <span class="text-2xl">📽️</span>
-                            <span class="font-semibold">Project Documentary</span>
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-black mb-6">Our Mission Resources</h2>
+                <p class="text-green-100 text-lg mb-12 leading-relaxed">
+                    Access our official project files and guides below to learn how we are making a difference at Fujairah School.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Link 1: Video File -->
+                    <a href="From Shadow to Green_ Our Choice_720p_caption.mp4" target="_blank" class="flex flex-col items-center gap-4 bg-green-800/50 p-10 rounded-3xl border border-green-700 hover:bg-green-700 transition group cursor-pointer shadow-xl">
+                        <span class="text-6xl group-hover:scale-110 transition">📽️</span>
+                        <div class="mt-4">
+                            <span class="font-bold block text-xl">Project Documentary</span>
+                            <span class="text-sm text-green-300 italic underline">Watch Video File</span>
                         </div>
-                        <div class="flex items-center gap-4 bg-green-800/50 p-4 rounded-2xl border border-green-700">
-                            <span class="text-2xl">🌱</span>
-                            <span class="font-semibold">Sustainable Habits Guide</span>
+                    </a>
+                    
+                    <!-- Link 2: Guide PDF -->
+                    <a href="Eco-Warrior-Guide (3).pdf" target="_blank" class="flex flex-col items-center gap-4 bg-green-800/50 p-10 rounded-3xl border border-green-700 hover:bg-green-700 transition group cursor-pointer shadow-xl">
+                        <span class="text-6xl group-hover:scale-110 transition">🌱</span>
+                        <div class="mt-4">
+                            <span class="font-bold block text-xl">Sustainability Guide</span>
+                            <span class="text-sm text-green-300 italic underline">Open PDF Resource</span>
                         </div>
-                    </div>
-                </div>
-                <div class="video-container shadow-2xl border-8 border-green-800">
-                    <!-- Placeholder for YouTube/Vimeo Video -->
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="Green Home Heroes Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW ADDITION: Community Location Section -->
+    <!-- Community Location Section -->
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -486,7 +476,6 @@
             "Take a short shower (less than 5 minutes) to save water.",
             "Turn off the tap while brushing your teeth.",
             "Wait for a full load before using the washing machine.",
-            "Use a clothesline to dry your clothes instead of a dryer.",
             "Use LED bulbs – they save up to 80% more energy.",
             "Set your AC to 24°C to save electricity.",
             "Unplug electronics to stop 'vampire' energy waste."
@@ -521,53 +510,38 @@
 
         function updateCertificate() {
             const name = document.getElementById('userNameInput').value;
-            if (name.trim() === "") {
-                alert("Please enter your name first!");
-                return;
-            }
+            if (name.trim() === "") return;
             document.getElementById('certName').innerText = name;
             document.getElementById('certificatePrintArea').classList.remove('hidden');
             document.getElementById('certificatePrintArea').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Dashboard & Calculator Logic
         const lightsIn = document.getElementById('lights');
         const waterIn = document.getElementById('water');
         
         function updateAllStats() {
             const l = parseInt(lightsIn.value || 0);
             const w = parseInt(waterIn.value || 0);
-            
-            const lightsValEl = document.getElementById('lightsVal');
-            const waterValEl = document.getElementById('waterVal');
-            
-            if(lightsValEl) lightsValEl.innerText = l + (l === 1 ? " Bulb" : " Bulbs");
-            if(waterValEl) waterValEl.innerText = w + (w === 1 ? " Min" : " Mins");
-            
-            // Financial Savings
+            document.getElementById('lightsVal').innerText = l + (l === 1 ? " Bulb" : " Bulbs");
+            document.getElementById('waterVal').innerText = w + (w === 1 ? " Min" : " Mins");
             const savings = (l * 7) + (w * 12);
-            const totalSavingsEl = document.getElementById('totalSavings');
-            if(totalSavingsEl) totalSavingsEl.innerText = savings;
-            
-            // Carbon Footprint
+            document.getElementById('totalSavings').innerText = savings;
             const co2 = (l * 1.5) + (w * 0.8);
-            const co2CounterEl = document.getElementById('co2Counter');
-            if(co2CounterEl) co2CounterEl.innerText = co2.toFixed(1);
-            
-            // Trees
+            document.getElementById('co2Counter').innerText = co2.toFixed(1);
             const trees = (co2 / 1.6).toFixed(1);
-            const treeCounterEl = document.getElementById('treeCounter');
-            if(treeCounterEl) treeCounterEl.innerText = trees;
+            document.getElementById('treeCounter').innerText = trees;
         }
 
-        if(lightsIn) lightsIn.addEventListener('input', updateAllStats);
-        if(waterIn) waterIn.addEventListener('input', updateAllStats);
+        lightsIn.addEventListener('input', updateAllStats);
+        waterIn.addEventListener('input', updateAllStats);
 
-        // Chart Initialization
         function initChart() {
+            if (typeof Chart === 'undefined') {
+                setTimeout(initChart, 500);
+                return;
+            }
             const canvas = document.getElementById('progressChart');
-            if (!canvas || typeof Chart === 'undefined') return;
-
+            if (!canvas) return;
             const ctx = canvas.getContext('2d');
             new Chart(ctx, {
                 type: 'line',
@@ -595,11 +569,7 @@
         window.onload = function() {
             showNewTip();
             updateAllStats();
-            if (typeof Chart === 'undefined') {
-                setTimeout(initChart, 500);
-            } else {
-                initChart();
-            }
+            initChart();
         };
     </script>
 </body>
