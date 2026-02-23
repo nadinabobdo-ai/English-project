@@ -203,7 +203,8 @@
         </div>
     </section>
     
-            // List of 50 Daily Eco-Tips
+    <script>
+        // List of 50 Daily Eco-Tips
         const tips = [
             "Switch off the lights when leaving a room.",
             "Use natural light during the day instead of bulbs.",
@@ -257,6 +258,16 @@
             "Collect rainwater to water your indoor plants."
         ];
 
+                function showNewTip() {
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            document.getElementById('ecoTip').innerText = tips[randomIndex];
+        }
+
+        // Initialize first tip
+        window.onload = function() {
+            showNewTip();
+        };
+        
     <!-- Saving Calculator -->
     <section id="calculator" class="py-20 container mx-auto px-6 max-w-4xl">
         <div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-100 relative overflow-hidden">
@@ -391,3 +402,4 @@
 </body>
 
 </html>
+
