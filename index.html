@@ -204,69 +204,75 @@
     </section>
     
     <script>
-        // List of 50 Daily Eco-Tips
-        const tips = [
-            "Switch off the lights when leaving a room.",
-            "Use natural light during the day instead of bulbs.",
-            "Unplug chargers when they are not in use.",
-            "Take a short shower (less than 5 minutes) to save water.",
-            "Turn off the tap while brushing your teeth.",
-            "Wait for a full load before using the washing machine.",
-            "Use a clothesline to dry your clothes instead of a dryer.",
-            "Plant a tree or a small plant in your balcony.",
-            "Recycle paper, plastic, and glass properly.",
-            "Use a reusable water bottle instead of plastic ones.",
-            "Carry a cloth bag for shopping.",
-            "Don't waste food – only cook what you need.",
-            "Use LED bulbs – they save up to 80% more energy.",
-            "Set your AC to 24°C to save electricity in the summer.",
-            "Walk or bike for short trips instead of taking a car.",
-            "Use rechargeable batteries to reduce chemical waste.",
-            "Fix leaky taps immediately to save thousands of liters.",
-            "Eat more plant-based meals to reduce your carbon footprint.",
-            "Use a bowl to wash vegetables instead of running the tap.",
-            "Use the 'Eco' mode on your dishwasher or washing machine.",
-            "Avoid using single-use plastic straws and cutlery.",
-            "Reuse old glass jars for storage instead of buying new ones.",
-            "Turn off your computer or laptop at night.",
-            "Use a reusable coffee cup.",
-            "Buy local products to reduce transport pollution.",
-            "Close your curtains to keep the heat out during the day.",
-            "Use a lid on your pot while cooking to save heat.",
-            "Boil only the amount of water you need in the kettle.",
-            "Compost your fruit and vegetable scraps if possible.",
-            "Avoid buying over-packaged products.",
-            "Donate old clothes instead of throwing them away.",
-            "Use a watering can instead of a hose for your garden.",
-            "Print on both sides of the paper.",
-            "Use cold water for washing clothes whenever possible.",
-            "Tell your friends and family about saving energy!",
-            "Use solar-powered lights for your outdoor area.",
-            "Keep your fridge door closed – don't linger while looking.",
-            "Check your car’s tire pressure to save fuel.",
-            "Stop using plastic wrap; use beeswax wraps or containers.",
-            "Install a low-flow showerhead to save water.",
-            "Mend your clothes instead of buying new ones.",
-            "Avoid fast fashion – buy quality over quantity.",
-            "Use a laptop instead of a desktop to save 80% energy.",
-            "Pick up litter when you see it at the beach or park.",
-            "Turn off your car engine if you are waiting for someone.",
-            "Use matches instead of plastic lighters.",
-            "Store leftovers in glass containers.",
-            "Opt for digital receipts instead of paper ones.",
-            "Use a handheld fan instead of a small electric one.",
-            "Collect rainwater to water your indoor plants."
-        ];
+// قائمة الـ 50 نصيحة بيئية
+const tips = [
+    "Switch off the lights when leaving a room.",
+    "Use natural light during the day instead of bulbs.",
+    "Unplug chargers when they are not in use.",
+    "Take a short shower (less than 5 minutes) to save water.",
+    "Turn off the tap while brushing your teeth.",
+    "Wait for a full load before using the washing machine.",
+    "Use a clothesline to dry your clothes instead of a dryer.",
+    "Plant a tree or a small plant in your balcony.",
+    "Recycle paper, plastic, and glass properly.",
+    "Use a reusable water bottle instead of plastic ones.",
+    "Carry a cloth bag for shopping.",
+    "Don't waste food – only cook what you need.",
+    "Use LED bulbs – they save up to 80% more energy.",
+    "Set your AC to 24°C to save electricity in the summer.",
+    "Walk or bike for short trips instead of taking a car.",
+    "Use rechargeable batteries to reduce chemical waste.",
+    "Fix leaky taps immediately to save thousands of liters.",
+    "Eat more plant-based meals to reduce your carbon footprint.",
+    "Use a bowl to wash vegetables instead of running the tap.",
+    "Use the 'Eco' mode on your dishwasher or washing machine.",
+    "Avoid using single-use plastic straws and cutlery.",
+    "Reuse old glass jars for storage instead of buying new ones.",
+    "Turn off your computer or laptop at night.",
+    "Use a reusable coffee cup.",
+    "Buy local products to reduce transport pollution.",
+    "Close your curtains to keep the heat out during the day.",
+    "Use a lid on your pot while cooking to save heat.",
+    "Boil only the amount of water you need in the kettle.",
+    "Compost your fruit and vegetable scraps if possible.",
+    "Avoid buying over-packaged products.",
+    "Donate old clothes instead of throwing them away.",
+    "Use a watering can instead of a hose for your garden.",
+    "Print on both sides of the paper.",
+    "Use cold water for washing clothes whenever possible.",
+    "Tell your friends and family about saving energy!",
+    "Use solar-powered lights for your outdoor area.",
+    "Keep your fridge door closed – don't linger while looking.",
+    "Check your car’s tire pressure to save fuel.",
+    "Stop using plastic wrap; use beeswax wraps or containers.",
+    "Install a low-flow showerhead to save water.",
+    "Mend your clothes instead of buying new ones.",
+    "Avoid fast fashion – buy quality over quantity.",
+    "Use a laptop instead of a desktop to save 80% energy.",
+    "Pick up litter when you see it at the beach or park.",
+    "Turn off your car engine if you are waiting for someone.",
+    "Use matches instead of plastic lighters.",
+    "Store leftovers in glass containers.",
+    "Opt for digital receipts instead of paper ones.",
+    "Use a handheld fan instead of a small electric one.",
+    "Collect rainwater to water your indoor plants."
+];
 
-                function showNewTip() {
-            const randomIndex = Math.floor(Math.random() * tips.length);
-            document.getElementById('ecoTip').innerText = tips[randomIndex];
-        }
+function showNewTip() {
+    // اختيار رقم عشوائي بين 0 وطول قائمة النصائح
+    const randomIndex = Math.floor(Math.random() * tips.length);
+    
+    // تحديث النص في العنصر الذي يحمل المعرف ecoTip داخل الصفحة
+    const tipElement = document.getElementById('ecoTip');
+    if (tipElement) {
+        tipElement.innerText = tips[randomIndex];
+    }
+}
 
-        // Initialize first tip
-        window.onload = function() {
-            showNewTip();
-        };
+// تشغيل الوظيفة لاختيار أول نصيحة بمجرد تحميل الصفحة بالكامل
+window.onload = function() {
+    showNewTip();
+};
         
     <!-- Saving Calculator -->
     <section id="calculator" class="py-20 container mx-auto px-6 max-w-4xl">
@@ -402,4 +408,5 @@
 </body>
 
 </html>
+
 
